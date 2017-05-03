@@ -4,20 +4,18 @@ package com.mycompany.bologsaggregator.Controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.portlet.ModelAndView;
 
-@Controller
+@Controller 
+
 public class indexController {
     
     
     
     
-    @RequestMapping(value = "/start")
-    public org.springframework.web.servlet.ModelAndView mod()
+   @RequestMapping(value = "/index")
+    public String index()
     {
-        org.springframework.web.servlet.ModelAndView modelAndView =new org.springframework.web.servlet.ModelAndView("start");
-        modelAndView.addObject("s","My Msg");
-        return modelAndView;
+        return "layout/classic";
     }
     
     
