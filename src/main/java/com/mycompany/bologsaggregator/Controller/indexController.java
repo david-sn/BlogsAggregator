@@ -12,10 +12,10 @@ public class indexController {
     
     
     
-   @RequestMapping(value = "/index")
+   @RequestMapping(value = "/")
     public String index()
     {
-        return "layout/classic";
+        return "JSP/index";
     }
     
     
