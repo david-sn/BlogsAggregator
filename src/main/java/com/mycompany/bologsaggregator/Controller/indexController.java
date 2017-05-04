@@ -15,7 +15,7 @@ public class indexController {
    @RequestMapping(value = "/index")
     public String index()
     {
-        return "JSP/index";
+        return "layout/classic";
     }
     
     
