@@ -3,14 +3,85 @@
   "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
-<hibernate-mapping>
+<hibernate-mapping schema="jba" >
 
-    <class table="p" name="com.mycompany.bologsaggregator.Hibernate.Entity.User">
-        
-        <id column="id" type="int" name="id">
+    <class table="users" name="com.mycompany.bologsaggregator.Hibernate.Entity.User">
+        <id name="user_dbid" column="user_dbid" type="int" >
             <generator class="increment"></generator>
         </id>
+        <property name="userName" column="userName" type="string" length="255"></property>
+        <property name="userEmail" column="userEmail" type="string" length="255"></property>
+  
+        <!--User - ROLE-->
+        <set name="roles" table="USER_ROLE"  cascade="all">
+            <key column="user_dbid"/>
+            <many-to-many class="com.mycompany.bologsaggregator.Hibernate.Entity.Role"  column="Role_dbid" />
+        </set>
         
+        
+        <!--Users - blogs-->
+        <set name="blogs" table="blogs" >
+            <key>
+                <column name="user_dbid"  />
+            </key>
+            <one-to-many class="com.mycompany.bologsaggregator.Hibernate.Entity.Blog" />
+        </set>
     </class>
+
+
+    <class table="Roles" name="com.mycompany.bologsaggregator.Hibernate.Entity.Role">
+        <id column="role_dbid" type="int" name="role_dbid">
+            <generator class="increment"></generator>
+        </id>
+        <property name="RoleName" length="255" column="RoleName" type="string"></property>
+  
+        <!--User - ROLE-->
+        <set name="users" table="USER_ROLE" inverse="true"  cascade="all">
+            <key column="role_dbid"/>
+            <many-to-many class="com.mycompany.bologsaggregator.Hibernate.Entity.User"  column="User_dbid" />
+        </set>
+
+    </class>
+
+
+    <class table="Blogs" name="com.mycompany.bologsaggregator.Hibernate.Entity.Blog">
+        <id column="blog_dbid" type="int" name="blog_dbid" >
+            <generator class="increment"></generator>
+        </id>
+        <property name="blogUrl" length="255" column="blogUrl" type="string"></property>
+        <property name="blogName" length="255" column="blogName" type="string"></property>
+       
+        <!--Blogs Items-->
+        <set name="items" table="Items" inverse="true" >
+            <key>
+                <column name="blog_dbid1"  />
+            </key>
+            <one-to-many class="com.mycompany.bologsaggregator.Hibernate.Entity.Item" />
+        </set>
+        
+       <!--Users - blogs-->
+        <many-to-one name="user" class="com.mycompany.bologsaggregator.Hibernate.Entity.User" fetch="select">
+            <column name="user_dbid"  />
+        </many-to-one>
+    </class>
+
+        
+    <class table="Items" name="com.mycompany.bologsaggregator.Hibernate.Entity.Item">
+        <id column="item_dbid" type="int" name="item_dbid">
+            <generator class="increment"></generator>
+        </id>
+        <property name="itemTitle" column="itemTitle" type="string" length="255"></property>
+        <property name="itemDescriptions" column="itemDescriptions" type="string" length="255"></property>
+        <property name="itemLink" column="itemLink" type="string" length="255"></property>
+        <property name="itemPublishedDate" column="itemPublishedDate" type="date"></property>
+        
+        <!--Items- Blogs-->
+        <many-to-one name="blog" class="com.mycompany.bologsaggregator.Hibernate.Entity.Blog" fetch="select">
+            <column name="blog_dbid1"   />
+        </many-to-one>
+   
+   
+    </class>
+
 
 </hibernate-mapping>
