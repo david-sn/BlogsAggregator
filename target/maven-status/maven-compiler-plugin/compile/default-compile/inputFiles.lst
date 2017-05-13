@@ -1,6 +1,6 @@
-E:\My programs\PHASE2\WebApplication\bologs_Aggregator\src\main\java\com\mycompany\bologsaggregator\Hibernate\Entity\User.java
-E:\My programs\PHASE2\WebApplication\bologs_Aggregator\src\main\java\com\mycompany\bologsaggregator\Hibernate\Session\UserService.java
-E:\My programs\PHASE2\WebApplication\bologs_Aggregator\src\main\java\com\mycompany\bologsaggregator\Controller\indexController.java
-E:\My programs\PHASE2\WebApplication\bologs_Aggregator\src\main\java\com\mycompany\bologsaggregator\Hibernate\Entity\Role.java
-E:\My programs\PHASE2\WebApplication\bologs_Aggregator\src\main\java\com\mycompany\bologsaggregator\Hibernate\Entity\Item.java
-E:\My programs\PHASE2\WebApplication\bologs_Aggregator\src\main\java\com\mycompany\bologsaggregator\Hibernate\Entity\Blog.java
+E:\My programs\PHASE2\WebApplication\BlogsAggregator\src\main\java\com\mycompany\bologsaggregator\Hibernate\Entity\Item.java
+E:\My programs\PHASE2\WebApplication\BlogsAggregator\src\main\java\com\mycompany\bologsaggregator\Hibernate\Entity\User.java
+E:\My programs\PHASE2\WebApplication\BlogsAggregator\src\main\java\com\mycompany\bologsaggregator\Hibernate\Entity\Role.java
+E:\My programs\PHASE2\WebApplication\BlogsAggregator\src\main\java\com\mycompany\bologsaggregator\Hibernate\Session\NewHibernateUtil.java
+E:\My programs\PHASE2\WebApplication\BlogsAggregator\src\main\java\com\mycompany\bologsaggregator\Controller\indexController.java
+E:\My programs\PHASE2\WebApplication\BlogsAggregator\src\main\java\com\mycompany\bologsaggregator\Hibernate\Entity\Blog.java
