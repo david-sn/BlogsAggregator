@@ -56,12 +56,11 @@
                             <tbody>
                                 <c:forEach items="${employeeList}" var="emp">
                                     <tr>
-                                        <th><c:out value="${emp.id}"/></th>
-                                        <th><c:out value="${emp.name}"/></th>
-                                        <th><c:out value="${emp.age}"/></th>
-                                        <th><c:out value="${emp.salary}"/></th> 
-                                        <th><a href="editEmployee?id=<c:out value='${emp.id}'/>">Edit</a></th>
-                                        <th><a href="deleteEmployee?id=<c:out value='${emp.id}'/>">Delete</a></th>                         	
+                                        <th><c:out value="${emp.user_dbid}"/></th>
+                                        <th><c:out value="${emp.userName}"/></th>
+                                        <th><c:out value="${emp.userEmail}"/></th>
+                                        <th><a href="editEmployee?id=<c:out value='${emp.user_dbid}'/>">Edit</a></th>
+                                        <th><a href="deleteEmployee?id=<c:out value='${emp.user_dbid}'/>">Delete</a></th>                         	
                                     </tr>
                                 </c:forEach>
                             </tbody>

@@ -1,4 +1,4 @@
-package com.david.hib_mvc.Other;
+package com.mycompany.bologsaggregator.Hibernate.Session;
 
 import java.io.Serializable;
 import java.util.List;
