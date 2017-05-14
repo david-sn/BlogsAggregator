@@ -15,6 +15,11 @@
         <put-attribute name="body" value="/WEB-INF/layout/body.jsp" />
         <put-attribute name="title" value="Home" />
     </definition>
+    
+    <definition name="users" extends="defaultTemplate">
+        <put-attribute name="body" value="/WEB-INF/JSP/users.jsp" />
+        <put-attribute name="title" value="Users" />
+    </definition>
 
 
 </tiles-definitions>
