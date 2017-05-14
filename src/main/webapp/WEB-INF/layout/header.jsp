@@ -10,9 +10,9 @@
             <a class="navbar-brand" href="<spring:url value="/"/>">Java Blog Aggeragator</a>
         </div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="<spring:url value="/"/>">Home</a></li>
-            <li class=""><a href="<spring:url value="/users"/>">Users</a></li>
-            <li class=""><a href="<spring:url value="/"/>">Link</a></li>
+            <li class="${currentActive == 'index' ? 'active':''}"><a href="<spring:url value="/"/>">Home</a></li>
+            <li class="${currentActive == 'index' ? 'active':''}"><a href="<spring:url value="/users"/>">Users</a></li>
+            <li class="${currentActive == 'index' ? 'active':''}"><a href="<spring:url value="/"/>">Link</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>

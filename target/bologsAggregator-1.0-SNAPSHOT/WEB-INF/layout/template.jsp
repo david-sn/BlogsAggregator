@@ -2,7 +2,7 @@
 
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
-
+<%@taglib uri="http://tiles.apache.org/tags-tiles-extras" prefix="tilesx" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -21,9 +21,10 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     </head>
-
-    <body> 
+    
+    <body>     
         <div class="header">
+            <tilesx:useAttribute name="currentActive"/>
             <tiles:insertAttribute name="header" />
         </div>
 

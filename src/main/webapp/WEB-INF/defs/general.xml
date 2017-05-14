@@ -10,15 +10,23 @@
         <put-attribute name="body" value="/WEB-INF/layout/body.jsp" />
         <put-attribute name="footer" value="/WEB-INF/layout/footer.jsp" />
         <put-attribute name="title" value="Here Bloger" />
+        <put-attribute name="currentActive" value="Home" />
     </definition>
     <definition name="home" extends="defaultTemplate">
         <put-attribute name="body" value="/WEB-INF/layout/body.jsp" />
         <put-attribute name="title" value="Home" />
+        <put-attribute name="currentActive" value="Home" />
     </definition>
     
     <definition name="users" extends="defaultTemplate">
         <put-attribute name="body" value="/WEB-INF/JSP/users.jsp" />
         <put-attribute name="title" value="Users" />
+        <put-attribute name="currentActive" value="users" />
+    </definition>
+    <definition name="usersDetail" extends="defaultTemplate">
+        <put-attribute name="body" value="/WEB-INF/JSP/usersDetail.jsp" />
+        <put-attribute name="title" value="User Details" />
+        <put-attribute name="currentActive" value="users" />
     </definition>
 
 
