@@ -12,7 +12,7 @@
 
 
 <table class="table table-bordered table-hover table-striped">
-
+    <caption>Users List</caption>
     <thead>
         <tr>
             <th>User Code</th>
