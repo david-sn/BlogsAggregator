@@ -11,6 +11,7 @@
         </id>
         <property name="userName" column="userName" type="string" length="255"></property>
         <property name="userEmail" column="userEmail" type="string" length="255"></property>
+        <property name="userPassword" column="userPassword" type="string" length="255"></property>
   
         <!--User - ROLE-->
         <set name="roles" table="USER_ROLE"  cascade="all">

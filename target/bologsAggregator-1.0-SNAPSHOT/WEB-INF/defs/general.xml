@@ -26,7 +26,12 @@
     <definition name="usersDetail" extends="defaultTemplate">
         <put-attribute name="body" value="/WEB-INF/JSP/usersDetail.jsp" />
         <put-attribute name="title" value="User Details" />
-        <put-attribute name="currentActive" value="users" />
+        <put-attribute name="currentActive" value="usersDetail" />
+    </definition>
+    <definition name="userRegister" extends="defaultTemplate">
+        <put-attribute name="body" value="/WEB-INF/JSP/userRegister.jsp" />
+        <put-attribute name="title" value="User Login" />
+        <put-attribute name="currentActive" value="userRegister" />
     </definition>
 
 

@@ -1,7 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 
-<%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 
 <nav class="navbar navbar-inverse">
@@ -11,11 +10,11 @@
         </div>
         <ul class="nav navbar-nav">
             <li class="${currentActive == 'index' ? 'active':''}"><a href="<spring:url value="/"/>">Home</a></li>
-            <li class="${currentActive == 'index' ? 'active':''}"><a href="<spring:url value="/users"/>">Users</a></li>
+            <li class="${currentActive == 'users' ? 'active':''}"><a href="<spring:url value="/users"/>">Users</a></li>
             <li class="${currentActive == 'index' ? 'active':''}"><a href="<spring:url value="/"/>">Link</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="<spring:url value="/register"/>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
             <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         </ul>
     </div>

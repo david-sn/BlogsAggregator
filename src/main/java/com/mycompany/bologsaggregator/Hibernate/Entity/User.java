@@ -18,6 +18,7 @@ public class User  implements java.io.Serializable{
     private int user_dbid;
     private String userName;
     private String userEmail;
+    private String userPassword;
     private Set<Role> roles=new HashSet<Role>();
     private Set<Blog> blogs=new HashSet<Blog>();;
 
@@ -43,6 +44,14 @@ public class User  implements java.io.Serializable{
 
     public void setUserEmail(String userEmail) {
         this.userEmail = userEmail;
+    }
+
+    public String getUserPassword() {
+        return userPassword;
+    }
+
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
     }
 
     public Set<Role> getRoles() {
