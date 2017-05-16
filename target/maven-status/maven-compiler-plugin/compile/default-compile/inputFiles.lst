@@ -1,12 +1,13 @@
 E:\My programs\PHASE2\WebApplication\BlogsAggregator\src\main\java\com\mycompany\bologsaggregator\Hibernate\Entity\Item.java
 E:\My programs\PHASE2\WebApplication\BlogsAggregator\src\main\java\com\mycompany\bologsaggregator\Hibernate\DAO\ItemDAO.java
+E:\My programs\PHASE2\WebApplication\BlogsAggregator\src\main\java\com\mycompany\bologsaggregator\Hibernate\Entity\Role.java
+E:\My programs\PHASE2\WebApplication\BlogsAggregator\src\main\java\com\mycompany\bologsaggregator\Hibernate\Session\NewHibernateUtil.java
+E:\My programs\PHASE2\WebApplication\BlogsAggregator\src\main\java\com\mycompany\bologsaggregator\Hibernate\Entity\Blog.java
+E:\My programs\PHASE2\WebApplication\BlogsAggregator\src\main\java\com\mycompany\bologsaggregator\Hibernate\DAO\UserDAO.java
 E:\My programs\PHASE2\WebApplication\BlogsAggregator\src\main\java\com\mycompany\bologsaggregator\Controller\UserController.java
 E:\My programs\PHASE2\WebApplication\BlogsAggregator\src\main\java\com\mycompany\bologsaggregator\Hibernate\Entity\User.java
 E:\My programs\PHASE2\WebApplication\BlogsAggregator\src\main\java\com\mycompany\bologsaggregator\Hibernate\DAO\BlogDAO.java
-E:\My programs\PHASE2\WebApplication\BlogsAggregator\src\main\java\com\mycompany\bologsaggregator\Hibernate\Entity\Role.java
-E:\My programs\PHASE2\WebApplication\BlogsAggregator\src\main\java\com\mycompany\bologsaggregator\Hibernate\Session\NewHibernateUtil.java
+E:\My programs\PHASE2\WebApplication\BlogsAggregator\src\main\java\com\mycompany\bologsaggregator\Controller\LoginController.java
 E:\My programs\PHASE2\WebApplication\BlogsAggregator\src\main\java\com\mycompany\bologsaggregator\Controller\indexController.java
 E:\My programs\PHASE2\WebApplication\BlogsAggregator\src\main\java\com\mycompany\bologsaggregator\Hibernate\Session\InitDB.java
-E:\My programs\PHASE2\WebApplication\BlogsAggregator\src\main\java\com\mycompany\bologsaggregator\Hibernate\Entity\Blog.java
 E:\My programs\PHASE2\WebApplication\BlogsAggregator\src\main\java\com\mycompany\bologsaggregator\Hibernate\DAO\RoleDAO.java
-E:\My programs\PHASE2\WebApplication\BlogsAggregator\src\main\java\com\mycompany\bologsaggregator\Hibernate\DAO\UserDAO.java
