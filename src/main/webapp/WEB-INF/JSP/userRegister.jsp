@@ -4,18 +4,25 @@
     Author     : David Shire
 --%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="sform" %>
 
-<sform:form commandName="userModel" cssClass="form-horizontal">
+
+<c:if test="${param.success eq true}">
+    <div class="alert alert-success">Success Data Submitted</div>
+</c:if>
+
+
+<sform:form action="?success=true" commandName="userModel" cssClass="form-horizontal">
     <!--For Name-->
     <div class="form-group">
         <label class="col-sm-2 control-label" for="name" >Name:</label>
 
         <div class="col-sm-10">
-            <sform:input path="userName" cssClass="form-control" />
+            <sform:input path="userName" cssClass="form-control"  />
         </div>
 
     </div>
@@ -40,11 +47,12 @@
 
     </div>
 
-        
-<!--For Button-->
+
+    <!--For Button-->
     <div class="form-group">
         <div class="col-sm-10">
-            <input type="submit" value="save" class="btn btn-lg btn-primary"> 
+            <input type="submit" value="save"  class="btn btn-lg btn-primary"> 
+            <input type="reset" value="Clear All" class="btn btn-lg btn-warning"> 
         </div>
 
     </div>

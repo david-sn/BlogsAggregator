@@ -1,7 +1,9 @@
 package com.mycompany.bologsaggregator.Controller;
 
+import com.mycompany.bologsaggregator.Hibernate.DAO.BlogDAO;
 import com.mycompany.bologsaggregator.Hibernate.DAO.UserDAO;
 import com.mycompany.bologsaggregator.Hibernate.Entity.User;
+import java.security.Principal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -16,6 +18,9 @@ public class UserController {
 
     @Autowired
     private UserDAO userDAO;
+
+    @Autowired
+    private BlogDAO blogDAO;
 
     @RequestMapping(value = "users")
     public String users(Model m) {
@@ -34,15 +39,11 @@ public class UserController {
 
         return "layout/index";
     }
-    
-    
-    @ModelAttribute(binding = true,name = "userModel")
-    public User userAttr(){
-    return new User();
+
+    @ModelAttribute(binding = true, name = "userModel")
+    public User userAttr() {
+        return new User();
     }
-    
-    
-    
 
     @RequestMapping(value = "/register")
     public String Register(Model m) {
@@ -52,15 +53,22 @@ public class UserController {
 
         return "layout/index";
     }
-    
-    
-    
-    @RequestMapping(value = "/register",method = RequestMethod.POST)
-    public String SumitRegister(Model m,@ModelAttribute("userModel") User user) {
-       
+
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public String SumitRegister(Model m, @ModelAttribute("userModel") User user) {
+
         userDAO.createUser(user);
-        
+
         m.addAttribute("view", "userRegister");
+
+        return "layout/index";
+    }
+
+    @RequestMapping(value = "accout")
+    public String accouts(Model m, Principal principal) {
+
+        m.addAttribute("users", userDAO.getUsersByName(principal.getName()).get(0));
+        m.addAttribute("view", "usersDetail");
 
         return "layout/index";
     }

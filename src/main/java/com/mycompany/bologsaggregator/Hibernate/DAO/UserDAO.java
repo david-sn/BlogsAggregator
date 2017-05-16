@@ -59,24 +59,11 @@ public class UserDAO {
     public User getUser(int id) {
         return hibernateUtil.fetchById(id, User.class);
     }
-
-//    @SuppressWarnings("unchecked")
-//    public List<User> getAllUsers(String employeeName) {
-//        String query = "SELECT e.* FROM asd e WHERE e.name like '%" + employeeName + "%'";
-//        List<Object[]> employeeObjects = hibernateUtil.fetchAll(query);
-//        List<User> employees = new ArrayList<User>();
-//        for (Object[] employeeObject : employeeObjects) {
-//            User employee = new User();
-//            long id = ((BigInteger) employeeObject[0]).longValue();
-//            int age = (int) employeeObject[1];
-//            String name = (String) employeeObject[2];
-//            float salary = (float) employeeObject[3];
-//            employee.setUser_dbid((int)id);
-//            employee.setUserName(name);
-//            
-//            employees.add(employee);
-//        }
-//        System.out.println(employees);
-//        return employees;
-//    }
+     
+    
+    @SuppressWarnings("unchecked")
+    public List<User> getUsersByName(String UserName) {
+        List<User> usersObjects = hibernateUtil.getByName("userName",UserName,User.class);
+        return usersObjects;
+    }
 }

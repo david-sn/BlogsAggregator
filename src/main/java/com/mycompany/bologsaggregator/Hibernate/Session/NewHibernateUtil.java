@@ -1,12 +1,15 @@
 package com.mycompany.bologsaggregator.Hibernate.Session;
 
+import com.mycompany.bologsaggregator.Hibernate.Entity.User;
 import java.io.Serializable;
 import java.util.List;
+import org.hibernate.Criteria;
 
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 
 @Repository
 public class NewHibernateUtil {
@@ -40,6 +43,12 @@ public class NewHibernateUtil {
     @SuppressWarnings("rawtypes")
     public <T> List fetchAll(String query) {
         return sessionFactory.getCurrentSession().createSQLQuery(query).list();
+    }
+
+    public <T> List getByName(String PrpoertyName,String value,Class<T> entityClass) {
+        Criteria c=sessionFactory.getCurrentSession().createCriteria(entityClass);
+        c.add(Restrictions.ilike(PrpoertyName, value));
+        return c.list();
     }
 
     @SuppressWarnings("unchecked")

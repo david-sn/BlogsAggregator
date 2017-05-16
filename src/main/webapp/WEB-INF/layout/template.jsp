@@ -34,27 +34,29 @@
                     </div>
                     <ul class="nav navbar-nav">
                         <li class="${currentActive == 'Home' ? 'active':''}"><a href="<spring:url value="/"/>">Home</a></li>
-               
+
                         <!--if user loggedin and has admin Role-->
                         <security:authorize access="isAuthenticated() and hasRole('ROLE_ADMIN')">
                             <li class="${currentActive == 'users' ? 'active':''}"><a href="<spring:url value="/users"/>">Users</a></li>
                         </security:authorize>
                         
-                        <li class="${currentActive == 'index' ? 'active':''}"><a href="<spring:url value="/"/>">Link</a></li>
+                        <security:authorize access="isAuthenticated()">
+                            <li class="${currentActive == 'users' ? 'active':''}"><a href="<spring:url value="/accout"/>">My Account</a></li>
+                        </security:authorize>
                     </ul>
-                    
+
                     <ul class="nav navbar-nav navbar-right">
                         <li class="${currentActive == 'userRegister' ? 'active':''}"><a href="<spring:url value="/register"/>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                        
+
                         <!--if user not authenticated will show login user and hide logout button-->
                         <security:authorize access="! isAuthenticated()">
                             <li class="${currentActive == 'userLogin' ? 'active':''}"><a href="<spring:url value="/user-login"/>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-                         </security:authorize>
+                            </security:authorize>
 
                         <!--if User Authenticated will show Logout Button-->
                         <security:authorize access="isAuthenticated()">
                             <li><a href="<spring:url value="/logout"/>"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-                        </security:authorize>        
+                            </security:authorize>        
 
                     </ul>
                 </div>
