@@ -50,6 +50,7 @@ public class InitDB {
         
         User userAdmin =new User();
         userAdmin.setUserName("admin");
+        userAdmin.setUserPassword("admin");
         Set<Role> roles =new HashSet<Role>();
         roles.add(roleUser);
         roles.add(roleAdmin);

@@ -14,12 +14,24 @@
         <logout invalidate-session="true" logout-url="/logout" logout-success-url="/user-login"/>
     </http>  
     
-    <!--To add some users for test-->
+    
     <authentication-manager>
         <authentication-provider>
-            <user-service>
+    
+            <!--jdbc-user-service is for get dynamic users and role from database--> 
+            <jdbc-user-service data-source-ref="dataSource" 
+                               authorities-by-username-query="select users.username,Roles.roleName from users  
+                                                              join user_role on users.user_dbid = user_role.user_dbid 
+                                                              join roles on roles.role_dbid=user_role.role_dbid 
+                                                              where users.username=?  " 
+                               users-by-username-query="select users.username,users.userpassword,1 from users where users.username=?"
+            />
+            
+            
+            <!--To add some static users for test-->
+<!--            <user-service>
                 <user name="admin" password="admin" authorities="ROLE_USER, ROLE_ADMIN" />
-            </user-service>
+            </user-service>-->
         </authentication-provider>
     </authentication-manager> 
     
