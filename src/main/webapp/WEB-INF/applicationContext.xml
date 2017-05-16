@@ -74,4 +74,8 @@
     
     <bean class="com.mycompany.bologsaggregator.Hibernate.Session.InitDB" init-method="Init"/>
 
+    
+    <!--Load Spring Security File-->
+    <import resource="SpringSecurityConfigurations.xml"/>
+    
 </beans>

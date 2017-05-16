@@ -41,7 +41,7 @@ public class InitDB {
 
         
         Role roleAdmin = new Role();
-        roleAdmin.setRoleName("ROLE_Admin");
+        roleAdmin.setRoleName("ROLE_ADMIN");
 
         roleDAO.createRole(roleAdmin);
 //
