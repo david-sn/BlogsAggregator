@@ -26,7 +26,7 @@
                                                               join user_role on users.user_dbid = user_role.user_dbid 
                                                               join roles on roles.role_dbid=user_role.role_dbid 
                                                               where users.username=?  " 
-                               users-by-username-query="select users.username,users.userpassword,1 from users where users.username=?"
+                               users-by-username-query="select users.username,users.userpassword,userEnable from users where users.username=?"
             />
             
             

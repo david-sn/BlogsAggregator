@@ -51,7 +51,7 @@ public class InitDB {
         
         User userAdmin =new User();
         userAdmin.setUserName("admin");
-        
+        userAdmin.setUserEnable(true);
         //decrept user
         BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();
         userAdmin.setUserPassword(encoder.encode("admin"));

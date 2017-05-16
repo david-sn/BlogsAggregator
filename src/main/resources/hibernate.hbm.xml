@@ -12,7 +12,8 @@
         <property name="userName" column="userName" type="string" length="255"></property>
         <property name="userEmail" column="userEmail" type="string" length="255"></property>
         <property name="userPassword" column="userPassword" type="string" length="255"></property>
-  
+        <property name="userEnable" column="userEnable" type="true_false"></property>
+        
         <!--User - ROLE-->
         <set name="roles" table="USER_ROLE"  cascade="all">
             <key column="user_dbid"/>
@@ -60,7 +61,7 @@
             <one-to-many class="com.mycompany.bologsaggregator.Hibernate.Entity.Item" />
         </set>
         
-       <!--Users - blogs-->
+        <!--Users - blogs-->
         <many-to-one name="user" class="com.mycompany.bologsaggregator.Hibernate.Entity.User" fetch="select">
             <column name="user_dbid"  />
         </many-to-one>
