@@ -38,7 +38,8 @@
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li class="${currentActive == 'userRegister' ? 'active':''}"><a href="<spring:url value="/register"/>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                        <li class="${currentActive == 'userLogin' ? 'active':''}"><a href="<spring:url value="/user-login"/>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                        <li><a href="<spring:url value="/logout"/>"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
                     </ul>
                 </div>
             </nav>

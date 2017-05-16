@@ -10,8 +10,8 @@
     <!--enable web security to begin with--> 
     <http>
         <intercept-url pattern="/users**" access="hasRole('ROLE_ADMIN')" />
-        <form-login />
-        <logout />
+        <form-login login-page="/user-login" />
+        <logout invalidate-session="true" logout-url="/logout" logout-success-url="/user-login"/>
     </http>  
     
     <!--To add some users for test-->
