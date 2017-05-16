@@ -13,6 +13,7 @@ import java.util.HashSet;
 import java.util.Set;
 import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 public class InitDB {
 
@@ -50,7 +51,11 @@ public class InitDB {
         
         User userAdmin =new User();
         userAdmin.setUserName("admin");
-        userAdmin.setUserPassword("admin");
+        
+        //decrept user
+        BCryptPasswordEncoder encoder=new BCryptPasswordEncoder();
+        userAdmin.setUserPassword(encoder.encode("admin"));
+        
         Set<Role> roles =new HashSet<Role>();
         roles.add(roleUser);
         roles.add(roleAdmin);

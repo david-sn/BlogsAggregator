@@ -17,7 +17,9 @@
     
     <authentication-manager>
         <authentication-provider>
-    
+            <!--encrypt user password with bcrypt AlgorithmC-->
+            <password-encoder hash="bcrypt"/>
+            
             <!--jdbc-user-service is for get dynamic users and role from database--> 
             <jdbc-user-service data-source-ref="dataSource" 
                                authorities-by-username-query="select users.username,Roles.roleName from users  
@@ -29,7 +31,7 @@
             
             
             <!--To add some static users for test-->
-<!--            <user-service>
+            <!--            <user-service>
                 <user name="admin" password="admin" authorities="ROLE_USER, ROLE_ADMIN" />
             </user-service>-->
         </authentication-provider>
