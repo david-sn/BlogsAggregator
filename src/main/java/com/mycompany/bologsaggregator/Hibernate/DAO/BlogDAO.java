@@ -10,6 +10,8 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 import javax.transaction.Transactional;
+import org.springframework.security.access.method.P;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Service;
 
 @Transactional
@@ -41,6 +43,12 @@ public class BlogDAO {
     public void deleteBlog(int id) {
         Blog blog = new Blog();
         blog.setBlog_dbid(id);
+        hibernateUtil.delete(blog);
+    }
+    
+    @PreAuthorize("#blog.user.userName == authentication.name  or hasRole('ROLE_ADMIN')")
+     public void deleteBlog(@P("blog") Blog blog) {
+        
         hibernateUtil.delete(blog);
     }
 

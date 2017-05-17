@@ -38,4 +38,7 @@
     </authentication-manager> 
     
     
+    <!--pre Authorize propelm is test delete delete admin blog by url or user delete blog for another user-->
+    <global-method-security pre-post-annotations="enabled"/>
+    
 </beans:beans>

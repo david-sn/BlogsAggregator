@@ -94,7 +94,9 @@ public class UserController {
     @RequestMapping("/blog/remove/{id}")
     public String removeBlog(Model m,@PathVariable("id")int id)
     {
-        blogDAO.deleteBlog(id);
+        Blog blog=blogDAO.getBlog(id);
+        
+        blogDAO.deleteBlog(blog);
         m.addAttribute("view", "usersDetail");
         return "layout/index";
     }
