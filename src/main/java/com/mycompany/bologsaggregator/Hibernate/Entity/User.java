@@ -5,6 +5,7 @@
  */
 package com.mycompany.bologsaggregator.Hibernate.Entity;
 
+import com.mycompany.bologsaggregator.CustomValidation.UniqueUserName;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -23,6 +24,7 @@ public class User  implements java.io.Serializable{
     private String userName;
     
     @Email(message = "Invalid email address") @Size(min = 1,message = "Invalid email address")
+    @UniqueUserName(message = "Choose Another USer Name")
     private String userEmail;
     
     @Size(min = 5, message = "password Must be at least 5 charchter")
