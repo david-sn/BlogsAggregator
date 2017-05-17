@@ -54,7 +54,7 @@
         <property name="blogName" length="255" column="blogName" type="string"></property>
        
         <!--Blogs Items-->
-        <set name="items" table="Items" inverse="true" >
+        <set cascade="all" name="items" table="Items" inverse="true" >
             <key>
                 <column name="blog_dbid1"  />
             </key>
@@ -78,7 +78,7 @@
         <property name="itemPublishedDate" column="itemPublishedDate" type="date"></property>
         
         <!--Items- Blogs-->
-        <many-to-one name="blog" class="com.mycompany.bologsaggregator.Hibernate.Entity.Blog" fetch="select">
+        <many-to-one cascade="all" name="blog" class="com.mycompany.bologsaggregator.Hibernate.Entity.Blog" fetch="select">
             <column name="blog_dbid1"   />
         </many-to-one>
    

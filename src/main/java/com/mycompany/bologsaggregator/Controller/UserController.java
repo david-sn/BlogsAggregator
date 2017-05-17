@@ -88,4 +88,22 @@ public class UserController {
 
         return "layout/index";
     }
+    
+    
+    
+    @RequestMapping("/blog/remove/{id}")
+    public String removeBlog(Model m,@PathVariable("id")int id)
+    {
+        blogDAO.deleteBlog(id);
+        m.addAttribute("view", "usersDetail");
+        return "layout/index";
+    }
+    
+      @RequestMapping("/users/remove/{id}")
+    public String removeUser(Model m,@PathVariable("id")int id)
+    {
+        userDAO.deleteUser(id);
+        m.addAttribute("view", "users");
+        return "layout/index";
+    }
 }

@@ -18,6 +18,7 @@
             <th>User Code</th>
             <th>User Name</th>
             <th>User Email</th>
+            <th>User Delete</th>
         </tr>
     </thead>
     <tbody>
@@ -31,6 +32,9 @@
                 </td>
                 <td>
                     ${user.userEmail}
+                </td>
+                <td>
+                    <a href="<spring:url value="/users/remove/${user.user_dbid}"/>" class="btn btn-danger btn-xs">  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> </a>
                 </td>
             </tr>
         </c:forEach>

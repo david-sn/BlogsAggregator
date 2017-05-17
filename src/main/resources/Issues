@@ -1,0 +1,4 @@
+1-Redirect page from controller while using appache tiles 
+2-user integrity constrinas from hibernate mapping not work 
+    blog - items==delete
+    user - blog ==delete

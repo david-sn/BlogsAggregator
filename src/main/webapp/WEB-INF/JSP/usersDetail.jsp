@@ -7,6 +7,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@taglib uri="http://www.springframework.org/tags" prefix="spring" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
@@ -19,7 +20,7 @@
 </button>
 
 <!-- Modal -->
-<form:form commandName="blogModel" action="?success=true" cssClass="form-horizontal">
+<form:form commandName="blogModel"  cssClass="form-horizontal">
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -58,57 +59,56 @@
 <br><br>
 
 <script>
-    $(document).ready(function(){
+    $(document).ready(function () {
         $('.nav-tabs a:first').tab('show'); // Select first tab
     });
 </script>
 <!--Tabs-->
-<div>
-
-    <!-- Nav tabs -->
-    <ul class="nav nav-tabs" role="tablist">
-        <c:forEach items="${users.blogs}" var="blog">
-            <li><a href="#blog_${blog.blog_dbid}" data-toggle="tab">${blog.blogName}</a></li>
-            </c:forEach>
-    </ul>
-<br><br>
-    <!-- Tab panes -->
-    <div class="tab-content">
-        <c:forEach items="${users.blogs}" var="blog">
-            <div role="tabpanel" class="tab-pane" id="blog_${blog.blog_dbid}">
 
 
-                <span>Blog Name: <strong> ${blog.blogName} </strong> </span> 
-                <br/><br/>
-
-                <span>Blog Link: <a href="${blog.blogUrl}" target="_blank" data-toggle="tooltip" title="${blog.blogUrl}"><strong>Click Here</strong></a> </span> <br><hr>
-                <br/>
-
-                <table class="table table-bordered table-hover table-striped">
-                    <caption>Item Details</caption>
-                    <thead>
-                        <tr>
-                            <th>    <span><strong>Item Title: </strong></span>    </th>
-                            <th>    <span><strong>Item Link: </strong></span>     </th>
-                            <th>    <span><strong>Item Date Published </strong></span></th>
-                            <th>    <span><strong>Item Description </strong></span></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <c:forEach items="${blog.items}" var="item">
-                            <tr>
-                                <td>${item.itemTitle}</td>
-                                <td>${item.itemLink}</td>
-                                <td>${item.itemPublishedDate}</td>
-                                <td>${item.itemDescriptions}</td>
-                            </tr>
-                        </c:forEach>
-                    </tbody>
-                </table>
-
-
-            </div>
+<!-- Nav tabs -->
+<ul class="nav nav-tabs" role="tablist">
+    <c:forEach items="${users.blogs}" var="blog">
+        <li><a href="#blog_${blog.blog_dbid}" data-toggle="tab">${blog.blogName}</a></li>
         </c:forEach>
-    </div>
+</ul>
+<br><br>
+<!-- Tab panes -->
+<div class="tab-content">
+    <c:forEach items="${users.blogs}" var="blog">
+        <div role="tabpanel" class="tab-pane" id="blog_${blog.blog_dbid}">
 
+
+            <span>Blog Name: <strong> ${blog.blogName} - ${blog.blog_dbid} </strong> </span> 
+            <br/><br/>
+
+            <span>Blog Link: <a href="${blog.blogUrl}" target="_blank" data-toggle="tooltip" title="${blog.blogUrl}"><strong>Click Here</strong></a> </span> <br>
+
+
+            <a style="margin-top:20px;" href="<spring:url value='/blog/remove/${blog.blog_dbid}'/>" class="btn btn-danger btn-md">Remove Blog</a>
+
+            <hr>
+            <table class="table table-bordered table-hover table-striped">
+                <caption>Item Details</caption>
+                <thead>
+                    <tr>
+                        <th>    <span><strong>Item Title: </strong></span>    </th>
+                        <th>    <span><strong>Item Link: </strong></span>     </th>
+                        <th>    <span><strong>Item Date Published </strong></span></th>
+                        <th>    <span><strong>Item Description </strong></span></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <c:forEach items="${blog.items}" var="item">
+                        <tr>
+                            <td>${item.itemTitle}</td>
+                            <td>${item.itemLink}</td>
+                            <td>${item.itemPublishedDate}</td>
+                            <td>${item.itemDescriptions}</td>
+                        </tr>
+                    </c:forEach>
+                </tbody>
+            </table>
+        </div>
+    </c:forEach>
 </div>
