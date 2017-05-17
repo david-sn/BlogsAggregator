@@ -4,6 +4,12 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>/WEB-INF/applicationContext.xml</param-value>
     </context-param>
+    
+    <!--[cross site scripting]  to prevent any hack javascript entered as test in any form and use c:out from EL in JSP-->
+    <context-param>
+        <param-name>defaultHtmlEscape</param-name>
+        <param-value>true</param-value>
+    </context-param>
 
 
     <!-- This Listener Make Spring will Search File With Named applicationContext.xml-->

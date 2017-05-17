@@ -31,7 +31,7 @@
                     <a href="<spring:url value="/users/${user.user_dbid}"/>">${user.userName}</a>
                 </td>
                 <td>
-                    ${user.userEmail}
+                    <c:out value="${user.userEmail}" default="There is No Email Found"/>
                 </td>
                 <td>
                     <a href="<spring:url value="/users/remove/${user.user_dbid}"/>" class="btn btn-danger btn-xs triggerRemove">  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> </a>
