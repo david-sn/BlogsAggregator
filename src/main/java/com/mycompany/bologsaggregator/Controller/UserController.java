@@ -3,6 +3,7 @@ package com.mycompany.bologsaggregator.Controller;
 import com.mycompany.bologsaggregator.Hibernate.DAO.BlogDAO;
 import com.mycompany.bologsaggregator.Hibernate.DAO.UserDAO;
 import com.mycompany.bologsaggregator.Hibernate.Entity.User;
+import com.mycompany.bologsaggregator.Hibernate.Entity.Blog;
 import java.security.Principal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -45,6 +46,11 @@ public class UserController {
         return new User();
     }
 
+    @ModelAttribute(binding = true, name = "blogModel")
+    public Blog blogAttr() {
+        return new Blog();
+    }
+
     @RequestMapping(value = "/register")
     public String Register(Model m) {
 
@@ -69,6 +75,16 @@ public class UserController {
 
         m.addAttribute("users", userDAO.getUsersByName(principal.getName()).get(0));
         m.addAttribute("view", "usersDetail");
+
+        return "layout/index";
+    }
+
+    @RequestMapping(value = "/accout", method = RequestMethod.POST)
+    public String SumitAccoutBlog(Model m, @ModelAttribute("blogModel") Blog blog,Principal principal) {
+
+        blogDAO.createBlog(blog,principal.getName());
+
+        m.addAttribute("view", "userRegister");
 
         return "layout/index";
     }

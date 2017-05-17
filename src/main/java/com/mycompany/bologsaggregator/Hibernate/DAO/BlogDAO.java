@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.mycompany.bologsaggregator.Hibernate.Entity.Blog;
+import com.mycompany.bologsaggregator.Hibernate.Entity.User;
 import com.mycompany.bologsaggregator.Hibernate.Session.NewHibernateUtil;
 import java.math.BigInteger;
 import java.util.ArrayList;
@@ -26,6 +27,12 @@ public class BlogDAO {
     public int createBlog(Blog blog) {
         return (int) hibernateUtil.create(blog);
     }
+    public int createBlog(Blog blog,String name) {
+        User user=getUsersByName(name).get(0);
+        blog.setUser(user);
+        
+        return (int) hibernateUtil.create(blog);
+    }
 
     public Blog updateBlog(Blog blog) {
         return hibernateUtil.update(blog);
@@ -45,23 +52,9 @@ public class BlogDAO {
         return hibernateUtil.fetchById(id, Blog.class);
     }
 
-//    @SuppressWarnings("unchecked")
-//    public List<Blog> getAllBlogs(String blogName) {
-//        String query = "SELECT e.* FROM asd e WHERE e.name like '%" + blogName + "%'";
-//        List<Object[]> blogObjects = hibernateUtil.fetchAll(query);
-//        List<Blog> blogs = new ArrayList<Blog>();
-//        for (Object[] blogObject : blogObjects) {
-//            Blog blog = new Blog();
-//            long id = ((BigInteger) blogObject[0]).longValue();
-//            int age = (int) blogObject[1];
-//            String name = (String) blogObject[2];
-//            float salary = (float) blogObject[3];
-//            blog.setBlog_dbid((int) id);
-//            blog.setBlogName(name);
-//
-//            blogs.add(blog);
-//        }
-//        System.out.println(blogs);
-//        return blogs;
-//    }
+    @SuppressWarnings("unchecked")
+    public List<User> getUsersByName(String UserName) {
+        List<User> usersObjects = hibernateUtil.getByName("userName", UserName, User.class);
+        return usersObjects;
+    }
 }
