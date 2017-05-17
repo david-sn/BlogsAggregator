@@ -34,10 +34,41 @@
                     ${user.userEmail}
                 </td>
                 <td>
-                    <a href="<spring:url value="/users/remove/${user.user_dbid}"/>" class="btn btn-danger btn-xs">  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> </a>
+                    <a href="<spring:url value="/users/remove/${user.user_dbid}"/>" class="btn btn-danger btn-xs triggerRemove">  <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> </a>
                 </td>
             </tr>
         </c:forEach>
     </tbody>
 
 </table>
+
+<script>
+    $(document).ready(function () {
+        $('.nav-tabs a:first').tab('show'); // Select first tab
+        $('.triggerRemove').click(function(e){
+            e.preventDefault();
+          $("#modalRemove .rmbtn").attr("href",$(this).attr("href"));  
+          $("#modalRemove").modal();
+        });
+    });
+</script>
+
+
+<!-- Modal -->
+<div class="modal fade" id="modalRemove" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Remove Blog</h4>
+            </div>
+            <div class="modal-body">
+                Are you sure
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <a href="" class="btn btn-danger rmbtn">Remove</a>
+            </div>
+        </div>
+    </div>
+</div>

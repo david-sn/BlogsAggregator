@@ -61,6 +61,11 @@
 <script>
     $(document).ready(function () {
         $('.nav-tabs a:first').tab('show'); // Select first tab
+        $('.triggerRemove').click(function(e){
+            e.preventDefault();
+          $("#modalRemove .rmbtn").attr("href",$(this).attr("href"));  
+          $("#modalRemove").modal();
+        });
     });
 </script>
 <!--Tabs-->
@@ -85,7 +90,7 @@
             <span>Blog Link: <a href="${blog.blogUrl}" target="_blank" data-toggle="tooltip" title="${blog.blogUrl}"><strong>Click Here</strong></a> </span> <br>
 
 
-            <a style="margin-top:20px;" href="<spring:url value='/blog/remove/${blog.blog_dbid}'/>" class="btn btn-danger btn-md">Remove Blog</a>
+            <a style="margin-top:20px;" href="<spring:url value='/blog/remove/${blog.blog_dbid}'/>" class="btn btn-danger btn-md triggerRemove">Remove Blog</a>
 
             <hr>
             <table class="table table-bordered table-hover table-striped">
@@ -111,4 +116,23 @@
             </table>
         </div>
     </c:forEach>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalRemove" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Remove Blog</h4>
+            </div>
+            <div class="modal-body">
+                Are you sure
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <a href="" class="btn btn-danger rmbtn">Remove</a>
+            </div>
+        </div>
+    </div>
 </div>
