@@ -16,7 +16,7 @@
 </c:if>
 
 
-<sform:form action="?success=true" commandName="userModel" cssClass="form-horizontal">
+<sform:form action="?success=true" commandName="userModel" cssClass="form-horizontal registrationForm">
     <!--For Name-->
     <div class="form-group">
         <label class="col-sm-2 control-label" for="name" >Name:</label>
@@ -34,7 +34,7 @@
 
         <div class="col-sm-10">
             <sform:input path="userEmail" cssClass="form-control" />
-        <sform:errors path="userEmail" />
+            <sform:errors path="userEmail" />
         </div>
 
     </div>
@@ -45,7 +45,7 @@
 
         <div class="col-sm-10">
             <sform:password path="userPassword" cssClass="form-control" />
-               <sform:errors path="userPassword" />
+            <sform:errors path="userPassword" />
 
         </div>
 
@@ -64,3 +64,34 @@
 
 
 </sform:form>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".registrationForm").validate(
+                {
+                    rules: {
+                        userName: {
+                            required: true,
+                            minlength: 3
+                        },
+                        userEmail: {
+                            required: false,
+                            email: true
+                        },
+                        userPassword: {
+                            required: true,
+                            minlength: 3
+                        }
+
+                    },
+//                    this for text input highlight when written
+                    highlight:function (element){
+                        $(element).closest(".form-group").removeClass("has-success").addClass("has-error");
+                    },
+                    unhighlight:function (element){
+                        $(element).closest(".form-group").removeClass("has-error").addClass("has-success");
+                    }
+                }
+        );
+    });
+</script>

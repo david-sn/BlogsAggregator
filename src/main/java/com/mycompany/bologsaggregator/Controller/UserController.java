@@ -79,7 +79,7 @@ public class UserController {
     public String accouts(Model m, Principal principal) {
 
         m.addAttribute("users", userDAO.getUsersByName(principal.getName()).get(0));
-        m.addAttribute("view", "usersDetail");
+        m.addAttribute("view", "account");
 
         return "layout/index";
     }
