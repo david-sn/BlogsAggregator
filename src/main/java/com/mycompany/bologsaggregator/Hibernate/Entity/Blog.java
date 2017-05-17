@@ -4,12 +4,18 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.URL;
 
 
 public class Blog  implements java.io.Serializable{
 
     private int blog_dbid;
+    
+    @URL(message = "Invalid URL")
     private String blogUrl;
+    
+    @Size(min = 3,message = "Name Must be at least 3 charchter")
     private String blogName;
     private User user;
     private Set<Item> items=new HashSet<Item>();

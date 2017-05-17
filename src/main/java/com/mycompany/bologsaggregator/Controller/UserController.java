@@ -5,10 +5,12 @@ import com.mycompany.bologsaggregator.Hibernate.DAO.UserDAO;
 import com.mycompany.bologsaggregator.Hibernate.Entity.User;
 import com.mycompany.bologsaggregator.Hibernate.Entity.Blog;
 import java.security.Principal;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -61,11 +63,14 @@ public class UserController {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String SumitRegister(Model m, @ModelAttribute("userModel") User user) {
-
-        userDAO.createUser(user);
+    public String SumitRegister(Model m,@Valid @ModelAttribute("userModel") User user,BindingResult bindingResult) {
 
         m.addAttribute("view", "userRegister");
+        
+        if (bindingResult.hasErrors()) {
+            return "layout/index";
+        }
+        userDAO.createUser(user);
 
         return "layout/index";
     }
@@ -80,11 +85,15 @@ public class UserController {
     }
 
     @RequestMapping(value = "/accout", method = RequestMethod.POST)
-    public String SumitAccoutBlog(Model m, @ModelAttribute("blogModel") Blog blog,Principal principal) {
-
-        blogDAO.createBlog(blog,principal.getName());
+    public String SumitAccoutBlog(Model m,@Valid @ModelAttribute("blogModel") Blog blog,BindingResult result,Principal principal) {
 
         m.addAttribute("view", "userRegister");
+        
+        if (result.hasErrors()) {
+            return accouts(m,principal);
+        }
+        
+        blogDAO.createBlog(blog,principal.getName());
 
         return "layout/index";
     }

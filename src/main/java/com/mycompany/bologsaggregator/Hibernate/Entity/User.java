@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import javax.validation.constraints.Size;
+import org.hibernate.validator.constraints.Email;
 
 /**
  *
@@ -16,8 +18,14 @@ import java.util.Set;
  */
 public class User  implements java.io.Serializable{
     private int user_dbid;
+   
+    @Size(min = 3,message = "Name Must be at least 3 charchter")
     private String userName;
+    
+    @Email(message = "Invalid email address") @Size(min = 1,message = "Invalid email address")
     private String userEmail;
+    
+    @Size(min = 5, message = "password Must be at least 5 charchter")
     private String userPassword;
     private boolean userEnable;
     private Set<Role> roles=new HashSet<Role>();

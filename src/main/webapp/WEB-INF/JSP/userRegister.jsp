@@ -23,6 +23,7 @@
 
         <div class="col-sm-10">
             <sform:input path="userName" cssClass="form-control"  />
+            <sform:errors path="userName" />
         </div>
 
     </div>
@@ -33,6 +34,7 @@
 
         <div class="col-sm-10">
             <sform:input path="userEmail" cssClass="form-control" />
+        <sform:errors path="userEmail" />
         </div>
 
     </div>
@@ -43,6 +45,8 @@
 
         <div class="col-sm-10">
             <sform:password path="userPassword" cssClass="form-control" />
+               <sform:errors path="userPassword" />
+
         </div>
 
     </div>

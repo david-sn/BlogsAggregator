@@ -46,6 +46,7 @@
 
     <mvc:resources mapping="/resources/**" location="/resources/" />
  
+    <!--this validation server side-->
     <mvc:annotation-driven />
     
     
