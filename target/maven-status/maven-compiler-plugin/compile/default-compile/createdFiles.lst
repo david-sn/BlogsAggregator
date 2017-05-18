@@ -3,11 +3,13 @@ com\mycompany\bologsaggregator\Hibernate\DAO\BlogDAO.class
 com\mycompany\bologsaggregator\Hibernate\Session\InitDB.class
 com\mycompany\bologsaggregator\Hibernate\DAO\ItemDAO.class
 com\mycompany\bologsaggregator\Hibernate\Entity\Role.class
+com\mycompany\bologsaggregator\CustomValidation\UniqueUserName.class
 com\mycompany\bologsaggregator\Hibernate\DAO\UserDAO.class
 com\mycompany\bologsaggregator\Hibernate\Entity\Blog.class
 com\mycompany\bologsaggregator\Controller\LoginController.class
 com\mycompany\bologsaggregator\Hibernate\Session\NewHibernateUtil.class
 com\mycompany\bologsaggregator\Controller\indexController.class
+com\mycompany\bologsaggregator\CustomValidation\UniqueUserNameValidator.class
 com\mycompany\bologsaggregator\Hibernate\DAO\RoleDAO.class
 com\mycompany\bologsaggregator\Hibernate\Entity\Item.class
 com\mycompany\bologsaggregator\Hibernate\Entity\User.class

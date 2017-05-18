@@ -1,5 +1,7 @@
 E:\My programs\PHASE2\WebApplication\BlogsAggregator\src\main\java\com\mycompany\bologsaggregator\Hibernate\Entity\Item.java
 E:\My programs\PHASE2\WebApplication\BlogsAggregator\src\main\java\com\mycompany\bologsaggregator\Hibernate\DAO\ItemDAO.java
+E:\My programs\PHASE2\WebApplication\BlogsAggregator\src\main\java\com\mycompany\bologsaggregator\CustomValidation\UniqueUserName.java
+E:\My programs\PHASE2\WebApplication\BlogsAggregator\src\main\java\com\mycompany\bologsaggregator\CustomValidation\UniqueUserNameValidator.java
 E:\My programs\PHASE2\WebApplication\BlogsAggregator\src\main\java\com\mycompany\bologsaggregator\Hibernate\Entity\Role.java
 E:\My programs\PHASE2\WebApplication\BlogsAggregator\src\main\java\com\mycompany\bologsaggregator\Hibernate\Session\NewHibernateUtil.java
 E:\My programs\PHASE2\WebApplication\BlogsAggregator\src\main\java\com\mycompany\bologsaggregator\Hibernate\Entity\Blog.java

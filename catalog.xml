@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/E:/My%20programs/PHASE2/WebApplication/BlogsAggregator/src/main/java/com/mycompany/bologsaggregator/JAXB/RSS20.xsd.dtd" uri="src/main/resources/jaxb/jaxb/RSS20.xsd.dtd"/>
+    <system systemId="http://feeds.feedburner.com/javavids?format=xml" uri="src/main/resources/jaxb/jaxb/feeds.feedburner.com/javavids.format.xml"/>
+    <system systemId="file:/C:/Users/David%20Shiref/Desktop/RSS20.xsd" uri="src/main/resources/jaxb/RSS20/RSS20.xsd"/>
+    <system systemId="http://europa.eu/rapid/conf/RSS20.xsd" uri="src/main/resources/jaxb/fds/europa.eu/rapid/conf/RSS20.xsd"/>
+    <system systemId="file:/C:/Users/David%20Shiref/Desktop/sitemap.xsd" uri="src/main/resources/jaxb/xxssdd/sitemap.xsd"/>
+    <system systemId="file:/E:/My%20programs/PHASE2/WebApplication/BlogsAggregator/src/main/java/com/mycompany/bologsaggregator/JAXB/sitemap.xsd" uri="src/main/resources/jaxb/ads/sitemap.xsd"/>
+    <system systemId="file:/E:/My%20programs/PHASE2/WebApplication/BlogsAggregator/src/main/java/com/mycompany/bologsaggregator/JAXB/RSS20.xsd" uri="src/main/resources/jaxb/sd/RSS20.xsd"/>
+</catalog>

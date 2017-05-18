@@ -9,7 +9,7 @@
 <!DOCTYPE html>
 
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="sform" %>
-
+<%@taglib uri="http://www.springframework.org/tags" prefix="sf" %>
 
 <c:if test="${param.success eq true}">
     <div class="alert alert-success">Success Data Submitted</div>
@@ -72,7 +72,16 @@
                     rules: {
                         userName: {
                             required: true,
-                            minlength: 3
+                            minlength: 3,
+                            remote:{
+                                url"<sf:url value='/register/available'/>",
+                                type:"get",
+                                data:{
+                                    username:function(){
+                                        return $("#userName").val;
+                                    }
+                                }
+                            }
                         },
                         userEmail: {
                             required: false,
@@ -90,6 +99,11 @@
                     },
                     unhighlight:function (element){
                         $(element).closest(".form-group").removeClass("has-error").addClass("has-success");
+                    },
+                    messages:{
+                        userName:{
+                            remote:"Suche user already exist"
+                        }
                     }
                 }
         );

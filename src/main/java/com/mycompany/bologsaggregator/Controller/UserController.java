@@ -6,6 +6,10 @@ import com.mycompany.bologsaggregator.Hibernate.Entity.User;
 import com.mycompany.bologsaggregator.Hibernate.Entity.Blog;
 import java.security.Principal;
 import javax.validation.Valid;
+import javax.ws.rs.Consumes;
+import javax.ws.rs.GET;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -15,6 +19,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class UserController {
@@ -63,10 +69,10 @@ public class UserController {
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String SumitRegister(Model m,@Valid @ModelAttribute("userModel") User user,BindingResult bindingResult) {
+    public String SumitRegister(Model m, @Valid @ModelAttribute("userModel") User user, BindingResult bindingResult) {
 
         m.addAttribute("view", "userRegister");
-        
+
         if (bindingResult.hasErrors()) {
             return "layout/index";
         }
@@ -85,36 +91,43 @@ public class UserController {
     }
 
     @RequestMapping(value = "/accout", method = RequestMethod.POST)
-    public String SumitAccoutBlog(Model m,@Valid @ModelAttribute("blogModel") Blog blog,BindingResult result,Principal principal) {
+    public String SumitAccoutBlog(Model m, @Valid @ModelAttribute("blogModel") Blog blog, BindingResult result, Principal principal) {
 
         m.addAttribute("view", "userRegister");
-        
+
         if (result.hasErrors()) {
-            return accouts(m,principal);
+            return accouts(m, principal);
         }
-        
-        blogDAO.createBlog(blog,principal.getName());
+
+        blogDAO.createBlog(blog, principal.getName());
 
         return "layout/index";
     }
-    
-    
-    
+
     @RequestMapping("/blog/remove/{id}")
-    public String removeBlog(Model m,@PathVariable("id")int id)
-    {
-        Blog blog=blogDAO.getBlog(id);
-        
+    public String removeBlog(Model m, @PathVariable("id") int id) {
+        Blog blog = blogDAO.getBlog(id);
+
         blogDAO.deleteBlog(blog);
         m.addAttribute("view", "usersDetail");
         return "layout/index";
     }
-    
-      @RequestMapping("/users/remove/{id}")
-    public String removeUser(Model m,@PathVariable("id")int id)
-    {
+
+    @RequestMapping("/users/remove/{id}")
+    public String removeUser(Model m, @PathVariable("id") int id) {
         userDAO.deleteUser(id);
         m.addAttribute("view", "users");
         return "layout/index";
     }
+
+    @RequestMapping("register/available")
+    @ResponseBody
+    @Produces(MediaType.TEXT_PLAIN)
+    @Consumes(MediaType.TEXT_PLAIN)
+    @GET
+    public String available(@RequestParam("user") String username) {
+        Boolean available = userDAO.getUsersByName(username) == null;
+        return available.toString();
+    }
+
 }
